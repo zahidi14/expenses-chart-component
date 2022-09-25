@@ -1,0 +1,93 @@
+$SoftRed: hsl(10, 79%, 65%);
+$Cyan: hsl(186, 34%, 60%);
+
+$DarkBrown: hsl(25, 47%, 15%);
+$MediumBrown: hsl(28, 10%, 53%);
+$Cream: hsl(27, 66%, 92%);
+$VeryPaleOrange: hsl(33, 100%, 98%);
+
+
+@import url(https://fonts.google.com/specimen/DM+Sans);
+
+*{
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    
+}
+body{
+    background-color: $VeryPaleOrange;
+    
+}
+.container{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+    width:380px;
+    
+}
+
+.top{
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: $SoftRed;
+    padding: 12px 10px;
+    color: $VeryPaleOrange;
+}
+.bottom{
+    height: auto;
+    background-color: $Cream;
+    padding: 2px ;
+    border-radius: 10px;
+    margin-top: 10px;
+    h1 {
+        margin-top: 0;
+        // margin-bottom: (52 / 15) * 1rem;
+    }
+}
+.attribution{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+   
+    color: white;
+    text-align: center;
+}
+rect{
+    fill: $SoftRed;
+
+}
+rect:hover{
+    fill: $Cyan;
+}
+
+    .graph {
+        width: auto;
+    }
+
+    .tooltip {
+        text-decoration: underline;
+    }
+
+    .axis {
+        font: 10px Georgia, Arial, sans-serif;
+    }
+
+    .axis path {
+        fill: none;
+        stroke: #dadada;
+    
+    }
+    .axis line{
+        display: none;
+    } 
