@@ -13,6 +13,20 @@ body {
   background-color: hsl(33deg, 100%, 98%);
 }
 
+span {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: hsl(27deg, 66%, 92%);
+}
+
+h3 {
+  font-size: 14px;
+}
+
 .container {
   position: absolute;
   top: 0;
@@ -28,19 +42,32 @@ body {
   height: auto;
   border-radius: 10px;
   background-color: hsl(10deg, 79%, 65%);
-  padding: 12px 10px;
+  padding: 20px;
   color: hsl(33deg, 100%, 98%);
+  display: flex;
+  justify-content: space-between;
 }
 
 .bottom {
   height: auto;
-  background-color: hsl(27deg, 66%, 92%);
-  padding: 2px;
+  background-color: white;
+  padding: 20px;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .bottom h1 {
   margin-top: 0;
+  color: hsl(25deg, 47%, 15%);
+}
+.bottom .graph {
+  margin-top: 35px;
+}
+.bottom .total {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom .total span {
+  color: hsl(28deg, 10%, 53%);
 }
 
 .attribution {
@@ -55,21 +82,27 @@ body {
 rect {
   fill: hsl(10deg, 79%, 65%);
 }
-
 rect:hover {
   fill: hsl(186deg, 34%, 60%);
 }
 
+.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  background: black;
+  color: hsl(33deg, 100%, 98%);
+  border: 0px;
+  border-radius: 5px;
+  pointer-events: none;
+  text-decoration: none;
+  font-weight: 400;
+}
+
 .graph {
   width: auto;
-}
-
-.tooltip {
-  text-decoration: underline;
-}
-
-.axis {
-  font: 10px Georgia, Arial, sans-serif;
 }
 
 .axis path {
@@ -79,6 +112,4 @@ rect:hover {
 
 .axis line {
   display: none;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

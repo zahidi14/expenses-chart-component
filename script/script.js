@@ -23,6 +23,40 @@ var margin  = {top: 5, right: 10, bottom: 30, left: 2},
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    var tooltip = d3.select("#graph")
+        .append("div")
+        .style("opacity", 0)
+    .attr("class", "tooltip")
+    // // .style("background-color", "white")
+    // .style("border", "solid")
+    // .style("border-width", "2px")
+    // .style("border-radius", "5px")
+    // .style("padding", "5px")
+    
+
+    var mouseover = function(d){
+        tooltip
+        .style("opacity",1)
+        .html("$" + d.amount)
+        d3.select(this)
+        .style("stroke", "black")
+        .style("opacity", 1)
+    }
+
+    var mousemove = function(d) {
+        tooltip
+        
+          .style("left", (d3.mouse(this)[0]+70) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px")
+      }
+      var mouseleave = function(d) {
+        tooltip
+          .style("opacity", 0)
+        d3.select(this)
+          .style("stroke", "none")
+          .style("opacity", 0.8)
+      }
+    
 d3.json("data.json", function (data)
     {
         x.domain(data.map(function (d)
@@ -61,11 +95,13 @@ d3.json("data.json", function (data)
             .enter()
             .append("rect")
             // .style("fill", "orange")
+            
             .attr("x", function(d)
             {
                 return x(d.day);
             })
-            .attr("width", x.rangeBand())
+            .attr("width", "35px")
+            .attr("border-radius", "30px")
             .attr("y", function (d)
             {
                 return y(d.amount);
@@ -73,6 +109,8 @@ d3.json("data.json", function (data)
             .attr("height", function (d)
             {
                 return height - y(d.amount);
-            });
-		
+            })
+            .on("mouseover", mouseover)
+           
+            .on("mouseleave", mouseleave);
 })
