@@ -30,7 +30,7 @@ var margin  = {top: 5, right: 0, bottom: 30, left: 0},
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .attr("margin-left", "0")
+        
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -107,7 +107,7 @@ d3.json("data.json", function (data)
             })
             .style("color", "white")
             .attr("width", "35px")
-            .attr("border-radius", "30px")
+           
             .attr("y", function (d)
             {
                 return y(d.amount);
