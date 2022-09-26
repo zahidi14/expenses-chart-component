@@ -1,6 +1,6 @@
-var margin  = {top: 5, right: 10, bottom: 30, left: 2},
-        width   = 376 - margin.left - margin.right,
-        height  = 100 - margin.top - margin.bottom,
+var margin  = {top: 5, right: 0, bottom: 30, left: 0},
+        width   = 320 - margin.left - margin.right,
+        height  = 150 - margin.top - margin.bottom,
         x       = d3.scale.ordinal().rangeRoundBands([0,width], 0.5),
         y       = d3.scale.linear().range([height,0]);
 
@@ -16,14 +16,7 @@ var margin  = {top: 5, right: 10, bottom: 30, left: 2},
   //       // .outerTickSize(0)
   //       // .tickPadding(10);
 
- var svg     = d3.select("#graph")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    var tooltip = d3.select("#graph")
+  var tooltip = d3.select("#graph")
         .append("div")
         .style("opacity", 0)
     .attr("class", "tooltip")
@@ -32,6 +25,16 @@ var margin  = {top: 5, right: 10, bottom: 30, left: 2},
     // .style("border-width", "2px")
     // .style("border-radius", "5px")
     // .style("padding", "5px")
+
+ var svg     = d3.select("#graph")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("margin-left", "0")
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    
     
 
     var mouseover = function(d){
@@ -39,8 +42,10 @@ var margin  = {top: 5, right: 10, bottom: 30, left: 2},
         .style("opacity",1)
         .html("$" + d.amount)
         d3.select(this)
-        .style("stroke", "black")
+        // .style("stroke", "black")
         .style("opacity", 1)
+        .style("left", (d3.mouse(this)[0]+70) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px")
     }
 
     var mousemove = function(d) {
@@ -95,11 +100,12 @@ d3.json("data.json", function (data)
             .enter()
             .append("rect")
             // .style("fill", "orange")
-            
+            .attr('rx', 5)
             .attr("x", function(d)
             {
                 return x(d.day);
             })
+            .style("color", "white")
             .attr("width", "35px")
             .attr("border-radius", "30px")
             .attr("y", function (d)

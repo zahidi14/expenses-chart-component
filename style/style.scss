@@ -34,16 +34,29 @@ h1{
 h3{
     font-size: 14px;
 }
+
+hr{
+    border: 1px solid $Cream;
+    margin-bottom: 10px;
+}
+
+.tick{
+    fill: $MediumBrown;
+}
 .container{
     position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: auto;
-    width:380px;
-    
+    width:100%;
+    .center{
+        
+    }
 }
 
 .top{
@@ -96,7 +109,7 @@ rect{
 }
 
 .tooltip{
-    position: absolute;
+    // position: absolute;
     text-align: center;
     width: 60px;
     height: 28px;
@@ -120,7 +133,7 @@ rect{
     .axis path {
         fill: none;
         stroke: #dadada;
-    
+        display: none;
     }
     .axis line{
         display: none;
